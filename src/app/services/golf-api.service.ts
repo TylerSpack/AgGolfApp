@@ -22,6 +22,15 @@ export class GolfAPIService {
   }
 
   getCourseObservable(courseId): Observable<Course> {
-    return this.http.get<Course>(`https://golf-courses-api.herokuapp.com/courses/${courseId}`);
+    return this.http.get<any>(`https://golf-courses-api.herokuapp.com/courses/${courseId}`).pipe(
+      map(coursesObj => {
+        console.log('difficulties', coursesObj.data.holes[0].teeBoxes)
+        return {
+          ...coursesObj.data,
+          difficulties: coursesObj.data.holes[0].teeBoxes
+        };
+
+      })
+    );;
   }
 }
