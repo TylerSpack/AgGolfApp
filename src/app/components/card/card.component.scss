@@ -27,6 +27,7 @@ select{
             align-items: center;
             width: $rowHeight * 2;
             border: 1px solid black;
+            padding: 0 5px;
         }
         .rowBox{
             height: $rowHeight;
@@ -35,6 +36,17 @@ select{
             justify-content: center;
             width: $rowHeight;
             border: 1px solid black;
+            input::-webkit-inner-spin-button {
+                //gets rid of arrows on number input
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+        .rowInput {
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            font-size: 1.5vw;
+            border: none;
         }
     }
 }
