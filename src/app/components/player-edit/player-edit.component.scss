@@ -1,0 +1,15 @@
+.playerEditContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  .oldName {
+    margin-bottom: 10px;
+  }
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

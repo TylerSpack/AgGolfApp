@@ -1,52 +1,74 @@
-$rowHeight: 50px;
-select{
-    width: 95%;
-    margin: 0 auto;
-    padding: 0;
-    -moz-appearance: none;
-    // -webkit-appearance: none;
-    font-size: 1.5vw;
-    height: 90%;
-    border: none;
-    // border: 1px solid black;
-    // border-radius: 4px;
-    padding: 3px;
+$rowHeight: 4vw;
+select {
+  width: 95%;
+  margin: 0 auto;
+  padding: 0;
+  -moz-appearance: none;
+  font-size: 1.5vw;
+  height: 90%;
+  border: none;
+  padding: 3px;
 }
-.rowsContainer{
+// @media only screen and (max-width: 700px) {
+//     .rowsContainer {
+//       flex-direction: row;
+//       .row{
+//           flex-direction: column;
+//       }
+//     }
+//   }
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .buttons {
+    width: 100%;
+    padding: 15px 0 15px 25px;
+  }
+  .cardContainer {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-content: center;
-    margin: 25px;
-    .row{
+    .rowsContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      width: 100%;
+      margin: 0 auto;
+      .row {
         display: flex;
-        width: 100%;
-        .rowTitle{
-            height: $rowHeight;
-            display: flex;
-            align-items: center;
-            width: $rowHeight * 2;
-            border: 1px solid black;
-            padding: 0 5px;
+        font-size: 1.25vw;
+        .rowTitle {
+          height: $rowHeight;
+          display: flex;
+          align-items: center;
+          width: $rowHeight * 2;
+          border: 1px solid black;
+          padding: 0 5px;
         }
-        .rowBox{
-            height: $rowHeight;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: $rowHeight;
-            border: 1px solid black;
-            input::-webkit-inner-spin-button {
-                //gets rid of arrows on number input
-                -webkit-appearance: none;
-                margin: 0;
-            }
+        .playerBox {
+          justify-content: space-between;
+        }
+        .rowBox {
+          height: $rowHeight;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: $rowHeight;
+          border: 1px solid black;
+          input::-webkit-inner-spin-button {
+            //gets rid of arrows on number input
+            -webkit-appearance: none;
+            margin: 0;
+          }
         }
         .rowInput {
-            width: calc(100% - 2px);
-            height: calc(100% - 2px);
-            font-size: 1.5vw;
-            border: none;
+          width: calc(100% - 2px);
+          height: calc(100% - 2px);
+          font-size: 1.5vw;
+          border: none;
         }
+      }
     }
+  }
 }

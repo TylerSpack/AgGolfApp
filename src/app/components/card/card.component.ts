@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { Hole } from 'src/app/models/hole';
 import { NumberValueAccessor } from '@angular/forms';
 import { Player } from 'src/app/models/player';
+import { MatDialog } from '@angular/material/dialog';
+import { PlayerEditComponent } from '../player-edit/player-edit.component';
 
 @Component({
   selector: 'app-card',
@@ -17,7 +19,8 @@ export class CardComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private golfApiService: GolfAPIService
+    private golfApiService: GolfAPIService,
+    private dialog: MatDialog
   ) { }
 
   card: Card;
@@ -60,6 +63,37 @@ export class CardComponent implements OnInit {
       name: 'test',
       holes: []
     });
+  }
+  numOfName(playerIdx: number) {
+    let playersWithSameName = 0;
+    for (let i = playerIdx-1; i >= 0; i--) {
+      if(this.players[playerIdx].name === this.players[i].name){
+        playersWithSameName++;
+      }
+    }
+    return playersWithSameName;
+  }
+
+  openEditPlayerDialog(player: Player, playerIdx: number): void {
+    const dialogRef = this.dialog.open(PlayerEditComponent, {
+      data: {...player}
+    });
+
+    dialogRef.afterClosed().subscribe(newPlayer => {
+      console.log('The dialog was closed');
+      console.log('old player', player);
+      console.log('new player', newPlayer);
+      console.log('accessing players before player modification', this.players);
+      if (newPlayer !== null){
+        this.players[playerIdx] = newPlayer;
+        console.log('accessing players after player modification', this.players);
+      }
+      //TODO: could add popup saying "Player saved successfully." or "Player edit cancelled." (inside else)
+    });
+  }
+
+  saveGame() {
+    
   }
 
 }
