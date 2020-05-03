@@ -1,22 +1,64 @@
-.courseContainer{ 
+.courseContainer{
     display: flex;
-    width: 100%;
-    margin-top: 15px;
-    justify-content: space-around;
-    mat-card {
-        width: 30%;
-        padding: 15px 0;
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        img{
-            width: 90%;
-            height: 300px;
-            overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    span {
+        margin-top: 10px;
+        font-size: 2.5vw;
+    }
+    .courses{ 
+        display: flex;
+        width: 100%;
+        margin: 15px 0 25px 0;
+        justify-content: space-around;
+        
+        mat-card {
+            width: 30%;
+            padding: 15px 0;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 90%;
+                height: 300px;
+                overflow: hidden;
+            }
+            mat-card-title{
+                padding-top: 10px;
+            }
         }
-        mat-card-title{
-            padding-top: 10px;
+    }
+}
+.cardsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+        font-size: 2.5vw;
+        margin-bottom: 15px;
+    }
+    .cards{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        overflow: scroll;
+        padding: 0 25px;    
+        .card{
+            width: 25vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+            img:hover, mat-card-title:hover{
+                cursor: pointer;
+            }
+            img{
+                width: 90%;
+                height: 225px;
+                overflow: hidden;
+                margin-bottom: 10px;
+            }
         }
     }
 }

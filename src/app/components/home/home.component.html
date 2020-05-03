@@ -1,6 +1,25 @@
 <div class="courseContainer" *ngIf="course$ | async as courses">
-    <mat-card *ngFor="let course of courses" [routerLink]="['/card', {id: course.id}]">
-        <img [src]="course.image" alt="course image">
-        <mat-card-title>{{course.name}}</mat-card-title>
-    </mat-card>
+    <span>Start a new game!</span>
+    <div class="courses">
+        <mat-card *ngFor="let course of courses" [routerLink]="['/card', {id: course.id}]">
+            <img [src]="course.image" alt="course image">
+            <mat-card-title>{{course.name}}</mat-card-title>
+        </mat-card>
+    </div>
+</div>
+<div *ngIf="cardService.cards" class="cardsContainer">
+    <span>Or Choose from an existing card!</span>
+    <div class="cards">
+        <mat-card class="card" *ngFor="let card of cardService.cards; let i = index;">
+            <img [src]="card.thumbnailURL" alt="course image" (click)="onCardClick(i, card.courseID)">
+            <mat-card-title (click)="onCardClick(i, card.courseID)">
+                {{card.dateCreated['seconds'] * 1000 | date: "short"}}</mat-card-title>
+            &nbsp;
+            <button mat-raised-button color="warn" (click)="deleteCard(i)">
+                <span class="material-icons">
+                    delete
+                </span>
+            </button>
+        </mat-card>
+    </div>
 </div>
