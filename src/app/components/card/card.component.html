@@ -1,5 +1,11 @@
 <div class="gameContainer" *ngIf="course | async as c">
     <div class="buttons">
+        <button mat-raised-button [routerLink]="['/home']">
+            <span class="material-icons">
+                keyboard_backspace
+            </span>
+            Back to Home
+        </button>
         <button mat-raised-button (click)="addPlayer()">Add Player</button>
         <button mat-raised-button (click)="saveGame(c.thumbnail)">
             <span class="material-icons">
@@ -7,7 +13,6 @@
             </span>
         </button>
     </div>
-    <!-- <div style="height: 200px; overflow: scroll;">{{c | json}}</div> -->
     <div class="cardContainer">
         <div class="rowsContainer">
             <!-- holes -->
