@@ -17,7 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 //My Components
 import { HomeComponent } from './components/home/home.component';
@@ -48,7 +48,8 @@ import { PlayerEditComponent } from './components/player-edit/player-edit.compon
     MatSelectModule,
     MatButtonModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

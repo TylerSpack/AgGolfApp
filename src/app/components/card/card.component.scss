@@ -9,21 +9,17 @@ select {
   border: none;
   padding: 3px;
 }
-// @media only screen and (max-width: 700px) {
-//     .rowsContainer {
-//       flex-direction: row;
-//       .row{
-//           flex-direction: column;
-//       }
-//     }
-//   }
+
 .gameContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   .buttons {
-    width: 100%;
+    width: calc(100%-25px);
     padding: 15px 0 15px 25px;
+    button {
+      margin: 0 10px;
+    }
   }
   .cardContainer {
     display: flex;
@@ -48,6 +44,9 @@ select {
         }
         .playerBox {
           justify-content: space-between;
+          .editIcon{
+            font-size: 2vw;
+          }
         }
         .rowBox {
           height: $rowHeight;
@@ -61,6 +60,9 @@ select {
             -webkit-appearance: none;
             margin: 0;
           }
+          input {
+            text-align: center;
+          }
         }
         .rowInput {
           width: calc(100% - 2px);
@@ -69,6 +71,20 @@ select {
           border: none;
         }
       }
+    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  .rowsContainer {
+    flex-direction: row !important;
+    .row{
+        flex-direction: column;
+        .rowTitle{
+          height: $rowHeight * 2 !important;
+          width: $rowHeight !important;
+          writing-mode: vertical-lr;
+          padding: 5px 0 !important;
+        }
     }
   }
 }

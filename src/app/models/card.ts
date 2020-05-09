@@ -4,6 +4,6 @@ export interface Card {
     courseID: string;
     difficultyIdx: number;
     players: Player[];
-    dateCreated: Date,
+    dateLastModified: Date,
     thumbnailURL: string
 }

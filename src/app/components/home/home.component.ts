@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   deleteCard(cardIdx: number) {
-    
     this.cardService.deleteCard(this.cardService.firestoreCardIds[cardIdx]);
   }
 

@@ -1,64 +1,80 @@
-.courseContainer{
+.courseContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  span {
+    margin-top: 10px;
+    font-size: 4vw;
+  }
+  .courses {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    span {
-        margin-top: 10px;
+    width: 100%;
+    margin: 15px 0 25px 0;
+    justify-content: space-around;
+
+    mat-card {
+      width: 30%;
+      padding: 15px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      
+      img {
+        width: 90%;
+        max-height: 300px;
+        overflow: hidden;
+      }
+      mat-card-title {
+        padding-top: 10px;
         font-size: 2.5vw;
+      }
     }
-    .courses{ 
-        display: flex;
-        width: 100%;
-        margin: 15px 0 25px 0;
-        justify-content: space-around;
-        
-        mat-card {
-            width: 30%;
-            padding: 15px 0;
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            img{
-                width: 90%;
-                height: 300px;
-                overflow: hidden;
-            }
-            mat-card-title{
-                padding-top: 10px;
-            }
-        }
-    }
+  }
 }
 .cardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  span {
+    font-size: 3.5vw;
+    margin-bottom: 15px;
+  }
+  .cards {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    span {
-        font-size: 2.5vw;
-        margin-bottom: 15px;
-    }
-    .cards{
+    width: calc(100% - 50px);
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    overflow: scroll;
+    padding: 0 25px;
+    .card {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 20px;
+      mat-card-title {
+        font-size: 1.5em;
+      }
+      img:hover,
+      mat-card-title:hover {
+        cursor: pointer;
+      }
+      img {
+        width: 90%;
+        max-height: 225px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+      button {
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        overflow: scroll;
-        padding: 0 25px;    
-        .card{
-            width: 25vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 20px;
-            img:hover, mat-card-title:hover{
-                cursor: pointer;
-            }
-            img{
-                width: 90%;
-                height: 225px;
-                overflow: hidden;
-                margin-bottom: 10px;
-            }
+        justify-content: center;
+        align-items: center;
+        span {
+          font-size: 4vw;
         }
+      }
     }
+  }
 }

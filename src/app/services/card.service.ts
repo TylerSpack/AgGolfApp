@@ -15,7 +15,7 @@ export class CardService {
   cardsRef: AngularFirestoreCollection;
 
   cards: Card[];
-
+  newCard = false;
   selectedCardIdx: number;
 
   constructor(
@@ -26,7 +26,7 @@ export class CardService {
       map(cards => {
         this.firestoreCardIds = [];
         return cards.map(card => {
-          this.firestoreCardIds.push(card.payload.doc.id)
+          this.firestoreCardIds.push(card.payload.doc.id);
           return card.payload.doc.data() as Card;
         })
       })
@@ -50,6 +50,7 @@ export class CardService {
   getGame() {
     return this.cards[this.selectedCardIdx];
   }
+  
   deleteCard(firestoreId: string) {
     this.cardsRef.doc(firestoreId).delete();
   }

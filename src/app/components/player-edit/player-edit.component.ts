@@ -23,7 +23,11 @@ export class PlayerEditComponent implements OnInit {
   }
 
   cancel() {
-    this.dialogRef.close(null);
+    this.dialogRef.close("cancel");
+  }
+
+  deletePlayer() {
+    this.dialogRef.close("delete");
   }
 
 }

@@ -7,7 +7,7 @@
             </span>
         </button>
     </div>
-    <div style="height: 200px; overflow: scroll;">{{c | json}}</div>
+    <!-- <div style="height: 200px; overflow: scroll;">{{c | json}}</div> -->
     <div class="cardContainer">
         <div class="rowsContainer">
             <!-- holes -->
@@ -26,67 +26,64 @@
             <div class="row">
                 <div class="rowTitle">
                     <select [(ngModel)]="card.difficultyIdx">
-                        <option *ngFor="let d of c.difficulties; let i = index" style="color: black"
-                            [value]="i" [selected]="i === 0">
+                        <option *ngFor="let d of c.difficulties; let i = index" style="color: black" [value]="i"
+                            [selected]="i === 0">
                             {{d.teeType}}
                         </option>
                     </select>
                 </div>
-                <!-- <ng-container *ngIf="c.holes[0].teeBoxes[this.card.difficulty]['yards']; else noData"> -->
-                    <div class="rowBox" *ngFor="let hole of [0,1,2,3,4,5,6,7,8]">
-                        {{c.holes[hole].teeBoxes[card.difficultyIdx].yards}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'yards', 1, 9)}}</div>
-                    <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16,17]">
-                        {{c.holes[hole].teeBoxes[card.difficultyIdx].yards}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'yards', 10, 18)}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'yards', 1, 18)}}</div>
-                <!-- </ng-container> -->
+                <div class="rowBox" *ngFor="let hole of [0,1,2,3,4,5,6,7,8]">
+                    {{c.holes[hole].teeBoxes[card.difficultyIdx].yards}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'yards', 1, 9)}}</div>
+                <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16,17]">
+                    {{c.holes[hole].teeBoxes[card.difficultyIdx].yards}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'yards', 10, 18)}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'yards', 1, 18)}}</div>
 
             </div>
             <!-- par -->
             <div class="row">
                 <div class="rowTitle">Par</div>
-                <!-- <ng-container *ngIf="c.holes[0].teeBoxes[this.card.difficulty].par; else noData"> -->
-                    <div class="rowBox" *ngFor="let hole of [0,1,2,3,4,5,6,7,8]">
-                        {{c.holes[hole].teeBoxes[card.difficultyIdx - 1].par}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'par', 1, 9)}}</div>
-                    <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16,17]">
-                        {{c.holes[hole].teeBoxes[card.difficultyIdx - 1].par}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'par', 10, 18)}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'par', 1, 18)}}</div>
-                <!-- </ng-container> -->
+                <div class="rowBox" *ngFor="let hole of [0,1,2,3,4,5,6,7,8]">
+                    {{c.holes[hole].teeBoxes[card.difficultyIdx].par}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'par', 1, 9)}}</div>
+                <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16,17]">
+                    {{c.holes[hole].teeBoxes[card.difficultyIdx].par}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'par', 10, 18)}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'par', 1, 18)}}</div>
 
             </div>
             <!-- handicap -->
             <div class="row">
                 <div class="rowTitle">HCP</div>
-                <!-- <ng-container *ngIf="c.holes[0].teeBoxes[this.card.difficulty].hcp; else noData"> -->
-                    <div class="rowBox" *ngFor="let hole of [0,1,2,3,4,5,6,7,8]">
-                        {{c.holes[hole].teeBoxes[card.difficultyIdx - 1].hcp}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'hcp', 1, 9)}}</div>
-                    <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16,17]">
-                        {{c.holes[hole].teeBoxes[card.difficultyIdx - 1].hcp}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'hcp', 10, 18)}}</div>
-                    <div class="rowBox">{{calcHolesSum(c.holes, 'hcp', 1, 18)}}</div>
-                <!-- </ng-container> -->
+                <div class="rowBox" *ngFor="let hole of [0,1,2,3,4,5,6,7,8]">
+                    {{c.holes[hole].teeBoxes[card.difficultyIdx].hcp}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'hcp', 1, 9)}}</div>
+                <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16,17]">
+                    {{c.holes[hole].teeBoxes[card.difficultyIdx].hcp}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'hcp', 10, 18)}}</div>
+                <div class="rowBox">{{calcHolesSum(c.holes, 'hcp', 1, 18)}}</div>
 
             </div>
             <!-- players -->
             <div class="row" *ngFor="let p of card.players; let i = index;">
-                <div class="rowTitle playerBox">
-                    {{p.name | name: numOfName(i)}}
-                    <span class="material-icons" (click)="openEditPlayerDialog(p, i)">
+                <div class="rowTitle playerBox" style="display: flex;">
+                    <div style="overflow: scroll;">
+                        {{p.name | name: numOfName(i)}}
+                    </div>
+                    <span class="material-icons editIcon" (click)="openEditPlayerDialog(p, i)">
                         create
                     </span>
                 </div>
                 <div class="rowBox" *ngFor="let hole of [0,1,2,3,4,5,6,7,8]">
                     <input type="number" [(ngModel)]="p.holes[hole]" class="rowInput">
-                    <!-- {{p.holes[hole]}} -->
                 </div>
                 <div class="rowBox">{{calcHolesSum(p.holes, null, 1, 9)}}</div>
-                <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16,17]">
+                <div class="rowBox" *ngFor="let hole of [9,10,11,12,13,14,15,16]">
                     <input type="number" [(ngModel)]="p.holes[hole]" class="rowInput">
-                    <!-- {{p.holes[hole]}} -->
+                </div>
+                <div class="rowBox" (focusout)="checkIfGameFinish(p, c.holes)">
+                    <input type="number" [(ngModel)]="p.holes[17]" class="rowInput">
                 </div>
                 <div class="rowBox">{{calcHolesSum(p.holes, null, 10, 18)}}</div>
                 <div class="rowBox">{{calcHolesSum(p.holes, null, 1, 18)}}</div>
