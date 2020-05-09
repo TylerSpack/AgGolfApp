@@ -32,7 +32,6 @@ export class CardService {
       })
     ).subscribe(c => {
       this.cards = c
-      console.log(c)
     });
   }
 

@@ -131,7 +131,6 @@ export class CardComponent implements OnInit, OnDestroy {
   }
   checkIfGameFinish(player: Player, holes: Hole[]) {
     let finished = true;
-    console.log(player.holes);
     for(let i = 0; i < 18; i++){
       if(player.holes[i] === null){
         finished = false;
